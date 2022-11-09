@@ -6,8 +6,34 @@ class Node {
   }
 }
 
+// function findTarget(root, target) {
+// 	let next = root ? root : null;
+// 	result = null;
+
+// 	while (next) {
+// 		if (next.value === target) {
+// 			result = next;
+// 			next = null;
+// 		} else if (next.value < target) {
+// 			next = next.right;
+// 		} else if (next.value > target) {
+// 			next = next.left;
+// 		}
+// 	}
+
+// 	return result;
+// }
+
 function findTarget(root, target) {
-  // type your code here
+	if (root === null || root.value === target) {
+		return root;
+	}
+
+	if (root.value < target) {
+		return findTarget(root.right, target);
+	} else {
+		return findTarget(root.left, target);
+	}
 }
 
 if (require.main === module) {
@@ -26,3 +52,6 @@ module.exports = { findTarget, Node };
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+
+/**
+ */
